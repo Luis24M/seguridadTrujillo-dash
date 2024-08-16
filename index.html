@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <div class="w-1/4 bg-gray-800 text-white h-screen p-5">
+            <h2 class="text-2xl font-bold mb-5">Admin Dashboard</h2>
+            <ul>
+              <li class="mb-3"><a href="#" onclick="mostrarSeccion('usuarios')" class="text-white">Usuarios</a></li>
+              <li class="mb-3"><a href="#" onclick="mostrarSeccion('incidentes')" class="text-white">Incidentes</a></li>
+              <li class="mb-3"><a href="#" onclick="mostrarSeccion('puntos-seguros')" class="text-white">Puntos Seguros</a></li>
+          </ul>
+          
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-3/4 p-10">
+            <h1 class="text-3xl font-bold mb-5">Bienvenido, Administrador</h1>
+            <p class="mb-5">Aquí puedes gestionar usuarios, incidentes y puntos seguros.</p>
+
+            <!-- Tablas y Contenido Dinámico -->
+            <div id="content">
+                <!-- Tabla de Usuarios -->
+                <div id="usuarios" class="hidden">
+                    <h2 class="text-2xl font-bold mb-5">Gestión de Usuarios</h2>
+                    <table class="table-auto w-full">
+                        <thead>
+                            <tr>
+                                <th class="px-4 py-2">Nombre</th>
+                                <th class="px-4 py-2">Email</th>
+                                <th class="px-4 py-2">Teléfono</th>
+                                <th class="px-4 py-2">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usuariosTableBody">
+                            <!-- Las filas se generarán dinámicamente con JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tabla de Incidentes -->
+                <div id="incidentes" class="hidden">
+                  <h2 class="text-2xl font-bold mb-5">Gestión de Incidentes</h2>
+                  
+                  <!-- Gráfico de Incidentes -->
+                  <div class="mb-5">
+                      <canvas id="incidentesChart"></canvas>
+                  </div>
+                  
+                  <table class="table-auto w-full">
+                      <thead>
+                          <tr>
+                              <th class="px-4 py-2">Tipo de Incidente</th>
+                              <th class="px-4 py-2">Descripción</th>
+                              <th class="px-4 py-2">Fecha</th>
+                              <th class="px-4 py-2">Hora</th>
+                              <th class="px-4 py-2">Usuario</th>
+                              <th class="px-4 py-2">Teléfono</th>
+                              <th class="px-4 py-2">Acciones</th>
+                          </tr>
+                      </thead>
+                      <tbody id="incidentesTableBody">
+                          <!-- Las filas se generarán dinámicamente con JavaScript -->
+                      </tbody>
+                  </table>
+              </div>
+              
+
+              <!-- Tabla de Puntos Seguros -->
+              <div id="puntos-seguros" class="hidden">
+                <h2 class="text-2xl font-bold mb-5">Gestión de Puntos Seguros</h2>
+                <table class="table-auto w-full">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2">Nombre del Punto</th>
+                            <th class="px-4 py-2">Tipo punto Seguro</th>
+                            <th class="px-4 py-2">Latitud</th>
+                            <th class="px-4 py-2">Longitud</th>
+                            <th class="px-4 py-2">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="puntosSegurosTableBody">
+                        <!-- Las filas se generarán dinámicamente con JavaScript -->
+                    </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
